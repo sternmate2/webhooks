@@ -1,4 +1,4 @@
-from flask import flask
+from flask import flask, render_template
 
 app = flask(__name__)
 
@@ -14,6 +14,12 @@ def tuna():
 @app.route('/profile/<username>')
 def profile(username):
 	return "<h2>hey there %s<h2>" % username
+	
+	
+@app.route("/profile/<name>")
+def profile(name):
+	return render_template("profile.html", name=name)	
+	
 	
 if __name__ == "__main__" :
 	app.run()
