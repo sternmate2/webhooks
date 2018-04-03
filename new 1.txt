@@ -1,0 +1,19 @@
+from flask import flask
+
+app = flask(__name__)
+
+
+@app.route('/')
+def index():
+	return 'this is home page'
+
+@app.route('/tuna')
+def tuna():
+	return '<h2>this is tuna page</h2>'
+	
+@app.route('/profile/<username>')
+def profile(username):
+	return "<h2>hey there %s<h2>" % username
+	
+if __name__ == "__main__" :
+	app.run()
